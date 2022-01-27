@@ -23,7 +23,7 @@ function App() {
   const [botonActivo, setBotonActivo] = useState(true)
   const [pokemon, setPokemon] = useState({});
   const [pokemonId, setPokemonId] = useState(1);
-  const [busqueda, setBusqueda]= useState("");
+  const [name, setName]= useState("");
 
   let subtitle;
   const [modalIsOpen, setIsOpen] = React.useState(false);
@@ -45,19 +45,15 @@ function App() {
 
     e.persist();
 
-    setBusqueda(e.target.value);
+    setName(e.target.value);
 
   }
 
-  const fetchPokemonbyname = () => {
+  const fetchPokemonName = () => {
 
-    fetch(`https://pokeapi.co/api/v2/pokemon/${busqueda}`)
-
+    fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
       .then((response) => response.json())
-
-      .then((data) => setPokemon(data))
-
-      ;
+      .then((data) => setPokemon(data));
 
   };
   
@@ -145,7 +141,7 @@ function App() {
         <label>Busqueda de pokemon ID o Nombre</label>
         <br></br>	
         <div class="input-container">
-        <input value={busqueda} placeholder="Ingres Nombre de pokemon"onChange={onChange}/>
+        <input value={name} placeholder="Ingres Nombre de pokemon"onChange={onChange}/>
         </div>
 
         
@@ -178,7 +174,7 @@ function App() {
         <button className='button' onClick={()=> fetchPokemon(backID())}>back</button>
         <button className='button' onClick={() => fetchPokemon(getRandomInt())}>Random</button>
         <button className='button' onClick={()=> fetchPokemon(nextID())}>Next</button>
-        <button className="button"  onClick={() => fetchPokemonbyname()}>Buscar</button>
+        <button className="button"  onClick={() => fetchPokemonName()}>Buscar</button>
         </div>
         
       </header>
