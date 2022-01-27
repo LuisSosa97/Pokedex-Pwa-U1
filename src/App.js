@@ -123,7 +123,7 @@ function App() {
   return (
     <div className="App">
       <div>
-      <a href="https://github.com/LuisSosa97/Pokedex.git">github</a>
+      <a href="https://github.com/LuisSosa97/Pokedex-Pwa-U1.git">github</a>
       </div>
       
 
